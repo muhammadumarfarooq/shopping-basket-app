@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { useAppSelector } from "../../redux/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../redux/reduxHooks";
+import { removeFromCart } from './cartSlice';
+
 
 const Cart = () => {
+  const dispatch = useAppDispatch()
   const cart = useAppSelector((state) => state.cart)
   const { cartProducts, subTotal, tax, total } = cart;
   
@@ -15,6 +18,8 @@ const Cart = () => {
             <h1>{name}</h1>
             <h3>{price * qty}</h3>
             <h3>{qty}</h3>
+            
+            <button onClick={() => dispatch(removeFromCart(cartProduct))}>Remove from cart</button>
           </div>
         )
       })}

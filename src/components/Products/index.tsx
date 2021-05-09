@@ -11,9 +11,7 @@ const index: productInterface[] = [
 
 const Products = () => {
   const dispatch = useAppDispatch()
-  const handleAddItemToCart = (product: productInterface) => {
-    dispatch(addToCart(product));
-  }
+  
   return (
     <div className="products">
       {index.map((product: productInterface) => {
@@ -22,7 +20,7 @@ const Products = () => {
           <div key={id}>
             <h1>{name}</h1>
             <p>{price}</p>
-            <button onClick={() => handleAddItemToCart(product)}>Add to cart</button>
+            <button onClick={() => dispatch(addToCart(product))}>Add to cart</button>
           </div>
         );
       })}

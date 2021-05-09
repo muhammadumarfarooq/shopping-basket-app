@@ -41,26 +41,30 @@ const handleCalculateCartTotals = (state: cartStateInterface, updatedCartProduct
 
 const handleAddToCart = (state: cartStateInterface, action: ActionInterface) => {
   const cartProducts = state.cartProducts;
-  
   const isItemAlreadyAvailableInCart = cartProducts.some(cartProduct => cartProduct.id === action.payload.id);
-  
   if ( isItemAlreadyAvailableInCart ) {
-    const updatedCartProducts = cartProducts.map(cartProduct => {
-      if ( cartProduct.id === action.payload.id ) {
-        return { ...cartProduct, qty: cartProduct.qty + 1 }
-      }
-      return cartProduct;
-    });
-    handleCalculateCartTotals(state, updatedCartProducts)
+    handleUpdateFromCart(state, action)
   } else {
     const updatedCartProducts = [...state.cartProducts, action.payload];
     handleCalculateCartTotals(state, updatedCartProducts);
   }
 }
 const handleRemoveFromCart = (state: cartStateInterface, action: ActionInterface) => {
-  console.log(action);
+  const cartProducts = state.cartProducts;
+  const updatedCartProducts = cartProducts.filter(cartProduct => cartProduct.id !== action.payload.id);
+  handleCalculateCartTotals(state, updatedCartProducts)
 }
 
+const handleUpdateFromCart = (state: cartStateInterface, action: ActionInterface) => {
+  const cartProducts = state.cartProducts;
+  const updatedCartProducts = cartProducts.map(cartProduct => {
+    if ( cartProduct.id === action.payload.id ) {
+      return { ...cartProduct, qty: cartProduct.qty + 1 }
+    }
+    return cartProduct;
+  });
+  handleCalculateCartTotals(state, updatedCartProducts)
+}
 
 export const counterSlice = createSlice({
   name: 'cart',
