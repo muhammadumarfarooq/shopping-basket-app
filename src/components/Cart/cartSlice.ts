@@ -1,6 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { RootState } from '../../redux/store'
-
 
 const TAX_RATE = 0.05;
 
@@ -82,7 +80,5 @@ export const counterSlice = createSlice({
 
 export const { addToCart, removeFromCart } = counterSlice.actions
 
-// Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.counter.value
 
 export default counterSlice.reducer

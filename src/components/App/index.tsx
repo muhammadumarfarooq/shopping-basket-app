@@ -6,7 +6,9 @@ import Cart from "../Cart";
 function App() {
   return (
     <div className="App">
-      <h1 style={{ textAlign: "center" }}>Shopping Basket</h1>
+      <nav className="nav">
+        <h2>Shopping Basket</h2>
+      </nav>
       <Products/>
       <Cart/>
     </div>

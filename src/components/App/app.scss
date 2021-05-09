@@ -1,0 +1,18 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav {
+  height: 83px;
+  box-shadow: 0 4px 4px hsla(0deg, 0, 0.06, 0.1);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+
+  h2 {
+    font-weight: bold;
+  }
+}
