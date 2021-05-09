@@ -4,9 +4,9 @@ import { addToCart } from '../Cart/cartSlice';
 import { useAppDispatch } from "../../redux/reduxHooks";
 
 const index: productInterface[] = [
-  { id: "1", name: "Red t-shirt", price: 5 },
-  { id: "2", name: "White t-shirt", price: 10 },
-  { id: "3", name: "Blue t-shirt", price: 15 },
+  { id: "1", name: "Red t-shirt", price: 5, qty: 1 },
+  { id: "2", name: "White t-shirt", price: 10, qty: 1 },
+  { id: "3", name: "Blue t-shirt", price: 15, qty: 1 },
 ];
 
 const Products = () => {

@@ -13,14 +13,14 @@ const Cart = () => {
         return (
           <div key={id}>
             <h1>{name}</h1>
+            <h3>{price * qty}</h3>
+            <h3>{qty}</h3>
           </div>
         )
       })}
       <h2>Sub total: {subTotal}</h2>
       <h2>Tax: {tax}</h2>
       <h2>Total: {total}</h2>
-    
-    
     </div>
   );
 }
